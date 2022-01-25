@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { Card } from '../deck.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { Card } from '../deck.service';
 })
 export class CardComponent {
 
-  card: Card;
-  constructor(card: Card) {
-    this.card = card;
+  @Input() card: Card = new Card('error', 'error', 'error', 'error');
+
+  constructor() {
   }
 
 

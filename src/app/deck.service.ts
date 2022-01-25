@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { CardComponent } from './card/card.component';
 
 @Injectable({
   providedIn: 'root'
@@ -90,7 +91,7 @@ export class Card {
   value: String;
   suit: String;
   code: String;
-  next: Card | undefined;
+  next: CardComponent | undefined;
   constructor(image: String, value: String, suit: String, code: String){
     this.image = image;
     this.value = value;

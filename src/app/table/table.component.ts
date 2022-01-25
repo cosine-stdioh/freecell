@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardComponent } from '../card/card.component';
 import { DeckService } from '../deck.service';
 import { FreecellComponent } from '../freecell/freecell.component';
 import { GoalcellComponent } from '../goalcell/goalcell.component';
@@ -39,13 +40,16 @@ export class TableComponent implements OnInit {
 
     if(this.deck.deck.success){
       for(var i = 52; i > 0; i--){
-        var card = this.deck.drawCard();
-        console.log(card.code);
-       this.stackcells[(52-i) % 8].acceptCard(card);
+        var cc = new CardComponent();
+        cc.card = this.deck.drawCard();
+
+        console.log(cc.card.code + " " + ((52-i) % 8));
+
+       this.stackcells[(52-i) % 8].acceptCard(cc);
       }
     }
-    for(var i = 0; i < 8; i++) {
-      console.log(this.stackcells[i].cards);
+    for(var i = 0; i < 8; i++){
+      console.log(this.stackcells[i].cards)
     }
     
   }

@@ -10,6 +10,7 @@ import { StackcellComponent } from './stackcell/stackcell.component';
 import { FreecellComponent } from './freecell/freecell.component';
 import { GoalcellComponent } from './goalcell/goalcell.component';
 import { CardComponent } from './card/card.component';
+import { DeckService } from './deck.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { CardComponent } from './card/card.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DeckService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

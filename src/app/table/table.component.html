@@ -16,6 +16,6 @@
 <hr>
 
 <div id="tableu">
-    <app-stackcell *ngFor="let stackcell of stackcells; let k = index"></app-stackcell>
+    <app-stackcell *ngFor="let stackcell of stackcells" [rootCard]="stackcell.rootCard" [cards]="stackcell.cards"></app-stackcell>
 
 </div>

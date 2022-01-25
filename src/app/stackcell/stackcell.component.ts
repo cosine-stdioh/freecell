@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Card, DeckService } from '../deck.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Card } from '../deck.service';
 import { CardComponent } from '../card/card.component';
 
 @Component({
@@ -8,38 +8,37 @@ import { CardComponent } from '../card/card.component';
   styleUrls: ['./stackcell.component.scss']
 })
 export class StackcellComponent implements OnInit {
-  rootCard: Card;
-  cards: Card[];
+  @Input() rootCard: CardComponent = new CardComponent();
+  @Input() cards: CardComponent[]  = new Array(0);;
 
   constructor() { 
-    this.rootCard = new Card(`/assets/base.png`, 'base', 'base', 'base')
-    this.cards = new Array(0);
+    
   }
 
   ngOnInit(): void {
+    this.rootCard.card = new Card('base', 'base', 'base', 'base');
   }
 
-  acceptCard(card: Card) {
-    var linkCard: Card;
-    var newstack: Card[] = new Array(0);
+  acceptCard(card: CardComponent) {
+    var linkCard: CardComponent;
+    var newstack: CardComponent[] = new Array(0);
     linkCard = this.rootCard;
-    if(this.rootCard.value == 'base') { 
+    if(this.rootCard.card.value == 'base') { 
       this.rootCard = card;
     } else {
-      while(linkCard.next != undefined) {
-        linkCard = linkCard.next;
+      while(linkCard.card.next != undefined) {
+        linkCard = linkCard.card.next;
       }
-      linkCard.next = card;
+      linkCard.card.next = card;
     }
     linkCard = this.rootCard;
     newstack.push(linkCard);
-    while(linkCard.next != undefined) {
-      console.log(linkCard.next);
-      newstack.push(linkCard.next);
-      linkCard = linkCard.next;
+    while(linkCard.card.next != undefined) {
+      newstack.push(linkCard.card.next);
+      linkCard = linkCard.card.next;
     }
     this.cards = newstack;
-
+    console.log(this.rootCard.card.code);
     
   }
 
