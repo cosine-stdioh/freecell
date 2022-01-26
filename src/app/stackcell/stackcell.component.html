@@ -1,5 +1,8 @@
-<div class="stackcell cell">
-    <app-card *ngFor="let card of cards" [card]="card.card"></app-card>
-
+<div class="stackcell cell" *ngIf="cards.length == 0">
 
 </div>
+<ul  *ngIf="cards.length > 0">
+    <li *ngFor="let card of cards" >
+        <app-card [card]="card.card"></app-card>
+    </li>
+</ul>

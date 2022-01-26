@@ -1,21 +1,34 @@
-{{deckstring}}
-<button (click)="showDeck()">showDeck</button>
-<button (click)="getDeck()">getDeck</button>
-<hr>
-<div id="freecells" class="topcells">
-    <app-freecell *ngFor="let freecell of freecells; let i = index"></app-freecell>
-
+<div>
+    {{deckstring}}
+    <button (click)="showDeck()">showDeck</button>
+    <button (click)="getDeck()">getDeck</button>
 </div>
 
-<div id="goalcells" class="topcells">
-    <app-goalcell *ngFor="let goalcell of goalcells; let j = index"></app-goalcell>
-
+<div id="toprow">
+    <h2>Freecell</h2>
+    <hr>
+    <div id="freecells" class="topcells">
+        <app-freecell *ngFor="let freecell of freecells; let i = index"></app-freecell>
+    
+    </div>
+    
+    <div id="goalcells" class="topcells">
+        <app-goalcell *ngFor="let goalcell of goalcells; let j = index"></app-goalcell>
+    
+    </div>
 </div>
 
 
-<hr>
 
 <div id="tableu">
-    <app-stackcell *ngFor="let stackcell of stackcells" [rootCard]="stackcell.rootCard" [cards]="stackcell.cards"></app-stackcell>
+    <table>
+        <tr>
+            <td *ngFor="let stackcell of stackcells">
+                <app-stackcell [rootCard]="stackcell.rootCard" [cards]="stackcell.cards"></app-stackcell>
+            </td>
+            
+        </tr>
+    </table>
+    
 
 </div>
