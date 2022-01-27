@@ -3,14 +3,11 @@
 }
 
 #tableu{
-    display: inline;
-}
+    display: grid;
+    gap:1rem;
 
+    grid-template-columns: repeat(8, 1fr);
 
-table, table tr, table tr td * {
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
 }
 
 hr {
