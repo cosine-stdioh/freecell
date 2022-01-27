@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Card } from '../deck.service';
 import { CardComponent } from '../card/card.component';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-stackcell',
@@ -28,6 +29,7 @@ export class StackcellComponent implements OnInit {
     } else {
       while(linkCard.card.next != undefined) {
         linkCard = linkCard.card.next;
+        console.log(linkCard.card.code);
       }
       linkCard.card.next = card;
     }
@@ -38,8 +40,10 @@ export class StackcellComponent implements OnInit {
       linkCard = linkCard.card.next;
     }
     this.cards = newstack;
-    console.log(this.rootCard.card.code);
     
+  }  
+  drop(event: CdkDragDrop<CardComponent>) {
+    this.acceptCard(event.container.data);
   }
 
 }

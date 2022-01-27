@@ -1,8 +1,6 @@
-<div class="stackcell cell" *ngIf="cards.length == 0">
+<div class="stackcell cell" *ngIf="cards.length == 0" >
 
 </div>
-<ul  *ngIf="cards.length > 0">
-    <li *ngFor="let card of cards" >
-        <app-card [card]="card.card"></app-card>
-    </li>
-</ul>
+<div *ngIf="cards.length > 0" cdkDropList (cdkDropListDropped)="drop($event)">
+    <app-card *ngFor="let card of cards" cdkDrag [card]="card.card" ></app-card>
+</div>

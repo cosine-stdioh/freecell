@@ -12,6 +12,9 @@ import { GoalcellComponent } from './goalcell/goalcell.component';
 import { CardComponent } from './card/card.component';
 import { DeckService } from './deck.service';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,8 @@ import { DeckService } from './deck.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ],
   providers: [DeckService],
   bootstrap: [AppComponent]

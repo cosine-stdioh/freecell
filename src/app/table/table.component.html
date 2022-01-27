@@ -24,7 +24,7 @@
     <table>
         <tr>
             <td *ngFor="let stackcell of stackcells">
-                <app-stackcell [rootCard]="stackcell.rootCard" [cards]="stackcell.cards"></app-stackcell>
+                <app-stackcell [rootCard]="stackcell.rootCard" [cards]="stackcell.cards" cdkDropListGroup="draggablearea"></app-stackcell>
             </td>
             
         </tr>

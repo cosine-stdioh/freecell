@@ -32,9 +32,9 @@ export class DeckService {
   }
 
   deal() {
-    console.log(this.ideck.deck_id);
     if(this.ideck.success){
       this.deck = new Deck(this.ideck.success, this.ideck.cards, this.ideck.deck_id, this.ideck.remaining);
+      this.ideck.success = false;
     }
   }
 

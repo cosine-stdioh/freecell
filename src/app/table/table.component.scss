@@ -7,9 +7,10 @@
 }
 
 
-table, table tr, table tr td {
+table, table tr, table tr td * {
     margin: 0;
     padding: 0;
+    vertical-align: top;
 }
 
 hr {

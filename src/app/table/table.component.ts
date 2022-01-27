@@ -31,6 +31,12 @@ export class TableComponent implements OnInit {
 
   getDeck(): void {
     this.deckstring = `getting deck`;
+    this.stackcells = new Array(8);
+    for(var i = 0; i < 8; i++){
+      this.stackcells[i] = new StackcellComponent();
+    }
+    this.freecells = new Array(4);
+    this.goalcells = new Array(4);
     this.deck.getDeck();
   }
 
@@ -39,6 +45,7 @@ export class TableComponent implements OnInit {
     this.deck.deal();
 
     if(this.deck.deck.success){
+      this.deck.deck.success = false;
       for(var i = 52; i > 0; i--){
         var cc = new CardComponent();
         cc.card = this.deck.drawCard();
@@ -47,10 +54,11 @@ export class TableComponent implements OnInit {
 
        this.stackcells[(52-i) % 8].acceptCard(cc);
       }
+      for(var i = 0; i < 8; i++){
+        console.log(this.stackcells[i].cards)
+      }
     }
-    for(var i = 0; i < 8; i++){
-      console.log(this.stackcells[i].cards)
-    }
+    
     
   }
     
