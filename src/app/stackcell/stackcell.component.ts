@@ -42,8 +42,9 @@ export class StackcellComponent implements OnInit {
     this.cards = newstack;
     
   }  
-  drop(event: CdkDragDrop<CardComponent>) {
-    this.acceptCard(event.container.data);
+  drop(event: CdkDragDrop<any>) {
+    //this.acceptCard(event.container.data);
+    console.log(event.container)
   }
 
 }

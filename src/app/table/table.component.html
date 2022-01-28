@@ -20,7 +20,7 @@
 
 
 
-<section id="tableu" cdkDropListGroup cdkDropListOrientation="horizontal">
-    <app-stackcell *ngFor="let stackcell of stackcells" [rootCard]="stackcell.rootCard" [cards]="stackcell.cards" cdkDropList cdkDropList (cdkDropListDropped)="stackcell.drop($event)" cdkDropListOrientation="horizontal"></app-stackcell>   
+<section id="tableu" cdkDropListGroup>
+    <app-stackcell *ngFor="let stackcell of stackcells" [rootCard]="stackcell.rootCard" [cards]="stackcell.cards"  cdkDropList (cdkDropListDropped)="stackcell.drop($event)" cdkDropListOrientation="vertical"></app-stackcell>   
 
 </section>
